@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import productRoutes from "./routes/productRoutes.js";
-
+import axios from "axios";
 dotenv.config();
 const app = express();
 app.use(cors());
