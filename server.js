@@ -17,7 +17,8 @@ app.get("/", (req, res) => res.send("Backend running ✅"));
 app.post("/api/trigger-instagram", async (req, res) => {
   try {
     const response = await axios.post(
-      'https://chowk.app.n8n.cloud/webhook-test/post-to-ig',
+    //   'https://chowk.app.n8n.cloud/webhook-test/post-to-ig',
+    'https://chowk.app.n8n.cloud/webhook/post-to-ig',
       req.body
     );
     res.json({ success: true, data: response.data });
