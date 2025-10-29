@@ -13,6 +13,21 @@ app.use("/api", productRoutes);
 
 app.get("/", (req, res) => res.send("Backend running ✅"));
 
+
+app.post("/api/trigger-instagram", async (req, res) => {
+  try {
+    const response = await axios.post(
+      'https://chowk.app.n8n.cloud/webhook-test/post-to-ig',
+      req.body
+    );
+    res.json({ success: true, data: response.data });
+  } catch (error) {
+    console.error("n8n webhook error:", error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+
 const PORT = process.env.PORT || 5000;
 mongoose
   .connect(process.env.MONGO_URI)
